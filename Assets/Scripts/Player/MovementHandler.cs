@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
+    // Criar uma trigger para iniciar a animação de landing antes de tocar o chão.
+
+
+
+
+
     public class MovementHandler : MonoBehaviour
     {
         [Header("Physics settings")]
@@ -12,6 +18,7 @@ namespace Assets.Scripts.Player
         public Vector2 friction = new Vector2(0.1f, 0);
 
         [Header("Animation settings")]
+        public Animator animator;
         public Vector3 jumpScaleAnimation = new Vector3(0.5f, 1.5f, 0f);
         public float jumpAnimationDuration = .5f;
         public Vector3 fallScaleAnimation = new Vector3(1.5f, .3f, 0f);
@@ -40,6 +47,12 @@ namespace Assets.Scripts.Player
         {
             _currentJumps = 0;
             AnimationHandler(fallScaleAnimation, fallAnimationDuration);
+            animator.SetBool("onGround", true);
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            animator.SetBool("onGround", false);
         }
 
         private void Update()
@@ -54,9 +67,17 @@ namespace Assets.Scripts.Player
             {
                 _currentJumps++;
                 _rigidbody2D.velocity = Vector2.up * jumpForce;
+                animator.SetBool("isJumping", true);
+                animator.SetBool("onGround", false);
 
                 AnimationHandler(jumpScaleAnimation, jumpAnimationDuration);
             }
+
+            if (_rigidbody2D.velocity.y < 0)
+            {
+                animator.SetBool("isJumping", false);
+            }
+
         }
 
         private void Movement()
@@ -70,6 +91,7 @@ namespace Assets.Scripts.Player
             if (Input.GetKeyDown(KeyCode.LeftShift) && !_isDashing)
             {
                 _isDashing = true;
+                animator.SetBool("isDashing", _isDashing);
                 _currentSpeed = speedDash;
 
                 AnimationHandler(dashScaleAnimation, dashAnimationDuration);
@@ -79,9 +101,19 @@ namespace Assets.Scripts.Player
 
         private void AnimationHandler(Vector3 animationScale, float duration)
         {
-            gameObject.transform.localScale = Vector2.one;
-            DOTween.Kill(gameObject.transform);
+            var isRightDirection = gameObject.transform.localScale.x > 0;
 
+            if (!isRightDirection)
+            {
+                animationScale.x *= -1;
+                gameObject.transform.DOScaleX(-1, 0.1f);
+            }
+            else
+            {
+                gameObject.transform.DOScaleX(1, 0.1f);
+            }
+
+            DOTween.Kill(gameObject.transform);
             gameObject.transform
                    .DOScale(animationScale, duration)
                    .SetEase(ease)
@@ -92,6 +124,7 @@ namespace Assets.Scripts.Player
         {
             _currentSpeed = speed;
             _isDashing = false;
+            animator.SetBool("isDashing", _isDashing);
         }
 
         private void DefaultMovement()
@@ -99,10 +132,18 @@ namespace Assets.Scripts.Player
             if (Input.GetKey(KeyCode.D))
             {
                 _rigidbody2D.velocity = new Vector2(_currentSpeed, _rigidbody2D.velocity.y);
+                gameObject.transform.DOScaleX(1, 0.1f);
+                animator.SetBool("isRunning", true);
             }
             else if (Input.GetKey(KeyCode.A))
             {
                 _rigidbody2D.velocity = new Vector2(-_currentSpeed, _rigidbody2D.velocity.y);
+                gameObject.transform.DOScaleX(-1, 0.1f);
+                animator.SetBool("isRunning", true);
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
             }
 
             ReduceVelocityByFriction();
