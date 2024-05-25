@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Managers;
+using UnityEngine;
 
-namespace Assets.Scripts.Buttons
+namespace Assets.Scripts.Canvas.Buttons
 {
     public class LoadScene : MonoBehaviour
     {

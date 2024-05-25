@@ -3,12 +3,6 @@ using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
-    // Criar uma trigger para iniciar a animação de landing antes de tocar o chão.
-
-
-
-
-
     public class MovementHandler : MonoBehaviour
     {
         [Header("Physics settings")]
@@ -45,6 +39,8 @@ namespace Assets.Scripts.Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (collision.gameObject.CompareTag("Collectable")) return;
+            
             _currentJumps = 0;
             AnimationHandler(fallScaleAnimation, fallAnimationDuration);
             animator.SetBool("onGround", true);
@@ -52,6 +48,8 @@ namespace Assets.Scripts.Player
 
         private void OnTriggerExit2D(Collider2D collision)
         {
+            if (collision.gameObject.CompareTag("Collectable")) return;
+
             animator.SetBool("onGround", false);
         }
 
