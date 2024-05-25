@@ -30,7 +30,6 @@ namespace Assets.Scripts.Gun
 
         private void Move()
         {
-            Debug.Log(_player.transform.localScale.x);   
             var direction = _player.transform.localScale.x > 0 ? 1 : -1;
             GetComponent<Rigidbody2D>().velocity = new Vector2(direction * speed, 0);
         }
