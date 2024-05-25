@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Buttons
+namespace Assets.Scripts.Canvas.Buttons
 {
     public class Exit : MonoBehaviour
     {

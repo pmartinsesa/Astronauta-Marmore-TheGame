@@ -1,9 +1,10 @@
 ﻿using Assets.Scripts.Astronauta.Core;
+using Cinemachine;
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Managers
 {
     public class GameManager : Singleton<GameManager>
     {
@@ -18,6 +19,9 @@ namespace Assets.Scripts
         public float duration;
         public Ease ease = Ease.OutBack;
 
+        [Header("Camera")]
+        public CinemachineVirtualCamera virtualCamera;
+
         private void Start()
         {
             SpawnPlayer();
@@ -31,6 +35,8 @@ namespace Assets.Scripts
                 .DOScale(0, duration)
                 .SetEase(ease)
                 .From();
+
+            virtualCamera.Follow = currentPlayer.transform;
         }
     }
 }
