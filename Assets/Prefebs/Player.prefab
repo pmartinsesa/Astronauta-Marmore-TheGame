@@ -121,19 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbcc78b1c0f45458f1e35bf123c230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  speedDash: 30
-  jumpForce: 25
-  friction: {x: 0.2, y: 0}
-  animator: {fileID: 5577245065617544389}
-  jumpScaleAnimation: {x: 0.8, y: 1.2, z: 0}
-  jumpAnimationDuration: 0.5
-  fallScaleAnimation: {x: 1.2, y: 0.8, z: 0}
-  fallAnimationDuration: 0.2
-  dashScaleAnimation: {x: 0.8, y: 1, z: 0}
-  dashAnimationDuration: 1.5
-  ease: 27
-  maxJumps: 2
+  playerSettings: {fileID: 11400000, guid: 5ac6d8b2225361840a300367c5637832, type: 2}
 --- !u!114 &3416465422739932994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,11 +270,6 @@ PrefabInstance:
 --- !u!1 &5457360442985622202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6784022632701445792, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
-  m_PrefabInstance: {fileID: 1556487131676568602}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5577245065617544389 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6413013834153556191, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 1556487131676568602}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8843377395849658021 stripped
