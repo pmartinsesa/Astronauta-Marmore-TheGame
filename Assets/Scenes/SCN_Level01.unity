@@ -4930,7 +4930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7185dfaae1ce9f345b587db071bdee98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinAmount: 0
+  coin: {fileID: 11400000, guid: 2b9886752972b8e44a1fb68fe622d36a, type: 2}
   updateCoinCounterOnScreen:
     m_PersistentCalls:
       m_Calls:

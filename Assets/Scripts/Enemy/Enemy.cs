@@ -17,6 +17,9 @@ namespace Assets.Scripts.Enemy
 
         private IEnumerator DestroyEnemy()
         {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            Destroy(gameObject.GetComponent<BoxCollider2D>());
+
             yield return new WaitForSeconds(_timeToDeath);
             Destroy(gameObject);
         }
