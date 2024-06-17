@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Enums;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Scripts.CollectableItems
 {
     public class Coin : MonoBehaviour, ICollectibleItem
     {
+        [Header("Coin")]
+        public ECoinType type;
+
         [Header("Events")]
-        public UnityEvent collectableManager;
+        public UnityEvent<ECoinType> addCoinsByType;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -18,13 +22,13 @@ namespace Assets.Scripts.CollectableItems
 
         public void OnCollect()
         {
-            collectableManager.Invoke();
+            addCoinsByType.Invoke(type);
             SelfDestroy();
         }
 
         public void SelfDestroy()
         {
-           Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -762,100 +762,6 @@ SpriteShapeRenderer:
     m_Center: {x: -62.32901, y: 0.805673, z: 0}
     m_Extent: {x: 113.54321, y: 1.9142914, z: 0}
   m_SpriteSortPoint: 0
---- !u!1001 &470923850
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1149129669}
-    m_Modifications:
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: updateScreen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2130874760}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2130874761}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateCoinAmount
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Assets.Scripts.Managers.ScreenManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474448095074797853, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_Name
-      value: PFB_Coin (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -25.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
---- !u!4 &470923851 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-  m_PrefabInstance: {fileID: 470923850}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &503485326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1001,11 @@ PrefabInstance:
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: updateScreen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2130874760}
+      objectReference: {fileID: 0}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: getCoinByType.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130874761}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -1126,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.7
+      value: -13.000002
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1560,11 +1470,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &898193727 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-  m_PrefabInstance: {fileID: 7679197951993424698}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &913452762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,8 +2000,7 @@ Transform:
   - {fileID: 1013537838}
   - {fileID: 1233842584}
   - {fileID: 1035884386}
-  - {fileID: 898193727}
-  - {fileID: 470923851}
+  - {fileID: 1972706680}
   - {fileID: 609079814}
   - {fileID: 1605034575}
   m_Father: {fileID: 2010910529}
@@ -3510,7 +3414,11 @@ PrefabInstance:
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: updateScreen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2130874760}
+      objectReference: {fileID: 0}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: getCoinByType.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130874761}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -3541,7 +3449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: -1.1000016
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4698,6 +4606,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1972706680 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+  m_PrefabInstance: {fileID: 5603632528523387630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2010910528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,6 +4694,7 @@ GameObject:
   - component: {fileID: 2043464088}
   - component: {fileID: 2043464087}
   - component: {fileID: 2043464086}
+  - component: {fileID: 2043464090}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4872,6 +4786,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2043464090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043464085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769c6d9a8cba9984d9957fe4254754e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterOnScreen: {fileID: 667143920}
 --- !u!1 &2130874758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,10 +4808,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2130874759}
-  - component: {fileID: 2130874760}
   - component: {fileID: 2130874761}
   m_Layer: 0
-  m_Name: ScreenManager
+  m_Name: CollectableManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4905,19 +4831,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1241634500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2130874760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130874758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769c6d9a8cba9984d9957fe4254754e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counterOnScreen: {fileID: 667143920}
 --- !u!114 &2130874761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4930,11 +4843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7185dfaae1ce9f345b587db071bdee98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 11400000, guid: 2b9886752972b8e44a1fb68fe622d36a, type: 2}
   updateCoinCounterOnScreen:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2130874760}
+      - m_Target: {fileID: 2043464090}
         m_TargetAssemblyTypeName: Assets.Scripts.Canvas.Counters.CoinCounter, Assembly-CSharp
         m_MethodName: UpdateCounterOnScreen
         m_Mode: 0
@@ -4946,6 +4858,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  collectables: {fileID: 11400000, guid: d21afddcb66782d4a8a276ef3e6f6865, type: 2}
 --- !u!1001 &3599279343249421192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4956,7 +4869,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2944973745361044811, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.98
+      value: 32.2
       objectReference: {fileID: 0}
     - target: {fileID: 2944973745361044811, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5016,7 +4929,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3176744783887258002, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
   m_PrefabInstance: {fileID: 3599279343249421192}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7679197951993424698
+--- !u!1001 &5603632528523387630
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5024,87 +4937,79 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1149129669}
     m_Modifications:
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: updateScreen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2130874760}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2130874761}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateCoinAmount
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Assets.Scripts.Managers.ScreenManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474448095074797853, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
-      propertyPath: m_Name
-      value: PFB_Coin
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.2
+      value: -6.9
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11
+      value: -10.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+    - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1216257642}
+    - target: {fileID: 7292459881027475388, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: m_Name
+      value: PFB_Coin (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750336118269418892, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750336118269418892, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750336118269418892, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768218614887940494, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: getCoinByType.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130874761}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
 --- !u!1001 &8763598642799732871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5119,7 +5024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8073972946613542793, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.96
+      value: 41.5
       objectReference: {fileID: 0}
     - target: {fileID: 8073972946613542793, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: m_LocalPosition.y

@@ -10,6 +10,7 @@ namespace Assets.Scripts.Canvas.Counters
  
         public void UpdateCounterOnScreen(int counter)
         {
+            Debug.Log("UpdateCounterOnScreen " + counter);
             counterOnScreen.SetText(counter.ToString());
         }
     }
