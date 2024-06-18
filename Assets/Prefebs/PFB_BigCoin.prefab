@@ -4846,6 +4846,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4862,7 +4866,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: getCoinByType.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateCoinAmount
+      objectReference: {fileID: 0}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdateCoinAmount
       objectReference: {fileID: 0}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
@@ -4878,11 +4890,19 @@ PrefabInstance:
       value: Assets.Scripts.Managers.CollectableManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Assets.Scripts.Managers.CollectableManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Assets.Scripts.Managers.ScreenManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: getCoinByType.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}

@@ -1007,6 +1007,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130874761}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130874761}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -3420,6 +3424,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130874761}
     - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130874761}
+    - target: {fileID: 643090586330226479, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: collectableManager.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -5003,6 +5011,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8768218614887940494, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: getCoinByType.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130874761}
+    - target: {fileID: 8768218614887940494, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: addCoinsByType.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2130874761}
     m_RemovedComponents: []

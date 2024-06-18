@@ -155,7 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9334dc2534f83b34395dd7ac3388fa2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getCoinByType:
+  type: 1
+  addCoinsByType:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
@@ -170,4 +171,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  type: 1
