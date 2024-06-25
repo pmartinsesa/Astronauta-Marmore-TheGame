@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Enums;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,6 +18,19 @@ namespace Assets.Scripts.CollectableItems
         private void Awake()
         {
             _particleSystem = GetComponentInChildren<ParticleSystem>() ?? null;
+        }
+
+        private void Start()
+        {
+            SetIdleAnimation();
+        }
+
+        private void SetIdleAnimation()
+        {
+            transform
+                .DOMoveY(-9.8f, .6f)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetEase(Ease.InOutSine);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +53,7 @@ namespace Assets.Scripts.CollectableItems
         public void SelfDestroy()
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            DOTween.Kill(gameObject.transform);
             Destroy(gameObject, 1f);
         }
     }

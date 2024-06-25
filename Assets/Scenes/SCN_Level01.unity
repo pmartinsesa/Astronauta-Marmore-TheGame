@@ -1044,7 +1044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1079,7 +1079,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1879704722638006762, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
@@ -3461,7 +3462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 7436854365839705091, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3496,7 +3497,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1879704722638006762, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64d8e67d7eb9546438424fbbba3aabed, type: 3}
@@ -4951,7 +4953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.5
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 1618846704439728802, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4988,6 +4990,26 @@ PrefabInstance:
     - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: emitterVelocityMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]

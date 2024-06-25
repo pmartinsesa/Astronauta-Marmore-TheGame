@@ -91,11 +91,12 @@ namespace Assets.Scripts.Player
             if (!isRightDirection)
             {
                 animationScale.x *= -1;
-                gameObject.transform.DOScaleX(-1, 0.1f);
+                gameObject.transform.localScale = new Vector2(-1, 1);
+
             }
             else
             {
-                gameObject.transform.DOScaleX(1, 0.1f);
+                gameObject.transform.localScale = new Vector2(1, 1);
             }
 
             DOTween.Kill(gameObject.transform);
