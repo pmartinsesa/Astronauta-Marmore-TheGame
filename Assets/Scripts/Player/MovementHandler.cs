@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.ScriptableObjects.PlayerTypes;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Player
 {
@@ -8,7 +9,11 @@ namespace Assets.Scripts.Player
     {
         [Header("Player settings")]
         public SOPlayer playerSettings;
-        
+
+        [Header("VFX settings")]
+        public UnityEvent runningVfx;
+        public UnityEvent jumpVfx;
+
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
         private float _currentSpeed;
@@ -27,7 +32,7 @@ namespace Assets.Scripts.Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Collectable")) return;
-            
+
             _currentJumps = 0;
             AnimationHandler(playerSettings.fallScaleAnimation, playerSettings.fallAnimationDuration);
             _animator.SetBool("onGround", true);
@@ -44,6 +49,8 @@ namespace Assets.Scripts.Player
         {
             Jump();
             Movement();
+            runningVfx.Invoke();
+            jumpVfx.Invoke();
         }
 
         private void Jump()
