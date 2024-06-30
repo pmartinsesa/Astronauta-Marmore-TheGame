@@ -4992,6 +4992,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996483536391610947, guid: ac8ef024f02992a44bb81b0539386608, type: 3}
       propertyPath: emitterVelocityMode
       value: 1
       objectReference: {fileID: 0}

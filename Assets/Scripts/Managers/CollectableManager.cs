@@ -20,8 +20,6 @@ namespace Assets.Scripts.Managers
         }
         public void UpdateCoinAmount(ECoinType type)
         {
-            Debug.Log((int)type);
-
             collectables.coins += (int)type;
             updateCoinCounterOnScreen.Invoke(collectables.coins);
         }
