@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.ScriptableObjects.PlayerTypes;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Assets.Scripts.Player
 {
@@ -11,8 +10,8 @@ namespace Assets.Scripts.Player
         public SOPlayer playerSettings;
 
         [Header("VFX settings")]
-        public UnityEvent runningVfx;
-        public UnityEvent jumpVfx;
+        public ParticleSystem jumpParticle;
+        public ParticleSystem runningParticle;
 
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
@@ -35,6 +34,9 @@ namespace Assets.Scripts.Player
 
             _currentJumps = 0;
             AnimationHandler(playerSettings.fallScaleAnimation, playerSettings.fallAnimationDuration);
+            Invoke(nameof(VFXJump), .3f);
+
+
             _animator.SetBool("onGround", true);
         }
 
@@ -49,8 +51,6 @@ namespace Assets.Scripts.Player
         {
             Jump();
             Movement();
-            runningVfx.Invoke();
-            jumpVfx.Invoke();
         }
 
         private void Jump()
@@ -62,6 +62,7 @@ namespace Assets.Scripts.Player
                 _animator.SetBool("isJumping", true);
                 _animator.SetBool("onGround", false);
 
+                VFXJump();
                 AnimationHandler(playerSettings.jumpScaleAnimation, playerSettings.jumpAnimationDuration);
             }
 
@@ -70,6 +71,11 @@ namespace Assets.Scripts.Player
                 _animator.SetBool("isJumping", false);
             }
 
+        }
+
+        private void VFXJump()
+        {
+            jumpParticle.Play();
         }
 
         private void Movement()
@@ -99,7 +105,6 @@ namespace Assets.Scripts.Player
             {
                 animationScale.x *= -1;
                 gameObject.transform.localScale = new Vector2(-1, 1);
-
             }
             else
             {
@@ -127,19 +132,35 @@ namespace Assets.Scripts.Player
                 _rigidbody2D.velocity = new Vector2(_currentSpeed, _rigidbody2D.velocity.y);
                 gameObject.transform.DOScaleX(1, 0.1f);
                 _animator.SetBool("isRunning", true);
+                VFXRunning();
             }
             else if (Input.GetKey(KeyCode.A))
             {
                 _rigidbody2D.velocity = new Vector2(-_currentSpeed, _rigidbody2D.velocity.y);
                 gameObject.transform.DOScaleX(-1, 0.1f);
                 _animator.SetBool("isRunning", true);
+                VFXRunning();
             }
             else
             {
+                runningParticle.Stop();
                 _animator.SetBool("isRunning", false);
             }
 
             ReduceVelocityByFriction();
+        }
+
+        private void VFXRunning()
+        {
+            if (_animator.GetBool("onGround"))
+            {
+                if (!runningParticle.isPlaying)
+                    runningParticle.Play();
+            }
+            else
+            {
+                runningParticle.Stop();
+            }
         }
 
         private void ReduceVelocityByFriction()

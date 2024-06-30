@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1480003781058213028}
   serializedVersion: 2
   m_LocalRotation: {x: -0.68771094, y: -0.1452677, z: 0.18167149, w: 0.68771106}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,8 +48,8 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
-  prewarm: 1
+  looping: 0
+  prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -611,7 +611,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4935,7 +4935,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -5002,7 +5002,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9724,7 +9724,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1446996786907298603}
-  - component: {fileID: 6395986683443558096}
   - component: {fileID: 1413391435676151848}
   - component: {fileID: 448080448203813317}
   - component: {fileID: 5843879801362912396}
@@ -9755,21 +9754,6 @@ Transform:
   - {fileID: 917651987917824389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6395986683443558096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5630619228832003816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60ccc45714e9fa94d93824c65ffe8093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runningParticle: {fileID: 8000761888655553483}
-  jumpParticle: {fileID: 4267036618528820324}
-  animator: {fileID: 5577245065617544389}
 --- !u!61 &1413391435676151848
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9855,36 +9839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSettings: {fileID: 11400000, guid: 5ac6d8b2225361840a300367c5637832, type: 2}
-  runningVfx:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6395986683443558096}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: vfxRunning
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  jumpVfx:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6395986683443558096}
-        m_TargetAssemblyTypeName: Assets.Scripts.Player.VFXHandler, Assembly-CSharp
-        m_MethodName: vfxJump
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  jumpParticle: {fileID: 4267036618528820324}
+  runningParticle: {fileID: 8000761888655553483}
 --- !u!114 &3416465422739932994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10033,11 +9989,6 @@ PrefabInstance:
 --- !u!1 &5457360442985622202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6784022632701445792, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
-  m_PrefabInstance: {fileID: 1556487131676568602}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5577245065617544389 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6413013834153556191, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 1556487131676568602}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8843377395849658021 stripped
