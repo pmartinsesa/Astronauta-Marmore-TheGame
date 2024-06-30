@@ -5,31 +5,22 @@ namespace Assets.Scripts.Life
     public class LifeBase : MonoBehaviour
     {
         [Header("Health settings")]
-        public int baseLife = 15;
+        public int life = 3;
 
         private int _currentLife;
         private bool _isDead;
 
         private void Awake()
         {
-            _currentLife = baseLife;
+            _currentLife = life;
             _isDead = false;
         }
 
-        public void onDamage(int damage)
+        public bool onDamage(int damage)
         {
             _currentLife -= damage;
 
-            if(_currentLife <= 0 )
-                killObject();
-        }
-
-        private void killObject()
-        {
-            if (_isDead) return;
-
-            _isDead = true;
-            Destroy(gameObject);
+            return _currentLife <= 0;
         }
     }
 }
