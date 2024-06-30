@@ -19,7 +19,10 @@ namespace Assets.Scripts.Gun
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            Destroy(gameObject);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(gameObject);
+            };
         }
 
         private void Start()

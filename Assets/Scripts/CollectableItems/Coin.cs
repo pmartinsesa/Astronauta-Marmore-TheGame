@@ -1,12 +1,37 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Enums;
+using DG.Tweening;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Scripts.CollectableItems
 {
     public class Coin : MonoBehaviour, ICollectibleItem
     {
+        [Header("Coin")]
+        public ECoinType type;
+
         [Header("Events")]
-        public UnityEvent collectableManager;
+        public UnityEvent<ECoinType> addCoinsByType;
+
+        private ParticleSystem _particleSystem;
+
+        private void Awake()
+        {
+            _particleSystem = GetComponentInChildren<ParticleSystem>() ?? null;
+        }
+
+        private void Start()
+        {
+            SetIdleAnimation();
+        }
+
+        private void SetIdleAnimation()
+        {
+            transform
+                .DOMoveY(-9.8f, .6f)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetEase(Ease.InOutSine);
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -18,13 +43,18 @@ namespace Assets.Scripts.CollectableItems
 
         public void OnCollect()
         {
-            collectableManager.Invoke();
+            if (type.Equals(ECoinType.Big))
+                _particleSystem?.Play();
+
+            addCoinsByType.Invoke(type);
             SelfDestroy();
         }
 
         public void SelfDestroy()
         {
-           Destroy(gameObject);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            DOTween.Kill(gameObject.transform);
+            Destroy(gameObject, 1f);
         }
     }
 }

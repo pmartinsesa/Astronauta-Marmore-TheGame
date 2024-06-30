@@ -8,7 +8,11 @@ namespace Assets.Scripts.Player
     {
         [Header("Player settings")]
         public SOPlayer playerSettings;
-        
+
+        [Header("VFX settings")]
+        public ParticleSystem jumpParticle;
+        public ParticleSystem runningParticle;
+
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
         private float _currentSpeed;
@@ -27,9 +31,12 @@ namespace Assets.Scripts.Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Collectable")) return;
-            
+
             _currentJumps = 0;
             AnimationHandler(playerSettings.fallScaleAnimation, playerSettings.fallAnimationDuration);
+            Invoke(nameof(VFXJump), .3f);
+
+
             _animator.SetBool("onGround", true);
         }
 
@@ -55,6 +62,7 @@ namespace Assets.Scripts.Player
                 _animator.SetBool("isJumping", true);
                 _animator.SetBool("onGround", false);
 
+                VFXJump();
                 AnimationHandler(playerSettings.jumpScaleAnimation, playerSettings.jumpAnimationDuration);
             }
 
@@ -63,6 +71,11 @@ namespace Assets.Scripts.Player
                 _animator.SetBool("isJumping", false);
             }
 
+        }
+
+        private void VFXJump()
+        {
+            jumpParticle.Play();
         }
 
         private void Movement()
@@ -91,11 +104,11 @@ namespace Assets.Scripts.Player
             if (!isRightDirection)
             {
                 animationScale.x *= -1;
-                gameObject.transform.DOScaleX(-1, 0.1f);
+                gameObject.transform.localScale = new Vector2(-1, 1);
             }
             else
             {
-                gameObject.transform.DOScaleX(1, 0.1f);
+                gameObject.transform.localScale = new Vector2(1, 1);
             }
 
             DOTween.Kill(gameObject.transform);
@@ -119,19 +132,35 @@ namespace Assets.Scripts.Player
                 _rigidbody2D.velocity = new Vector2(_currentSpeed, _rigidbody2D.velocity.y);
                 gameObject.transform.DOScaleX(1, 0.1f);
                 _animator.SetBool("isRunning", true);
+                VFXRunning();
             }
             else if (Input.GetKey(KeyCode.A))
             {
                 _rigidbody2D.velocity = new Vector2(-_currentSpeed, _rigidbody2D.velocity.y);
                 gameObject.transform.DOScaleX(-1, 0.1f);
                 _animator.SetBool("isRunning", true);
+                VFXRunning();
             }
             else
             {
+                runningParticle.Stop();
                 _animator.SetBool("isRunning", false);
             }
 
             ReduceVelocityByFriction();
+        }
+
+        private void VFXRunning()
+        {
+            if (_animator.GetBool("onGround"))
+            {
+                if (!runningParticle.isPlaying)
+                    runningParticle.Play();
+            }
+            else
+            {
+                runningParticle.Stop();
+            }
         }
 
         private void ReduceVelocityByFriction()
