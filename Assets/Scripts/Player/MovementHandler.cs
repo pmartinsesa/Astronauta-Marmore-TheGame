@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.ScriptableObjects.PlayerTypes;
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -13,19 +14,33 @@ namespace Assets.Scripts.Player
         public ParticleSystem jumpParticle;
         public ParticleSystem runningParticle;
 
+        [Header("Life settings")]
+        public int life = 3;
+
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
         private float _currentSpeed;
         private int _currentJumps;
-        private bool _isDashing;
+        private bool _isTakingDamage;
+        private float _timeToDeath = 3f;
+
 
         private void Awake()
         {
             _rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
             _animator = gameObject.GetComponentInChildren<Animator>();
             _currentSpeed = playerSettings.speed;
-            _isDashing = false;
             _currentJumps = 0;
+            _isTakingDamage = false;
+        }
+
+        private void Update()
+        {
+            if (!_isTakingDamage)
+            {
+                Jump();
+                Movement();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -35,8 +50,6 @@ namespace Assets.Scripts.Player
             _currentJumps = 0;
             AnimationHandler(playerSettings.fallScaleAnimation, playerSettings.fallAnimationDuration);
             Invoke(nameof(VFXJump), .3f);
-
-
             _animator.SetBool("onGround", true);
         }
 
@@ -47,10 +60,31 @@ namespace Assets.Scripts.Player
             _animator.SetBool("onGround", false);
         }
 
-        private void Update()
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            Jump();
-            Movement();
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                _isTakingDamage = true;
+                handleWithDamage();
+                StartCoroutine(SetTakingDamageAsFalse());
+            }
+        }
+
+        private void handleWithDamage()
+        {
+            life -= 1;
+            if (life <= 0)
+            {
+                _animator.SetBool("isJumping", false);
+                _animator.SetBool("isDead", true);
+                StartCoroutine(DestroyPlayer());
+            }
+        }
+
+        private IEnumerator SetTakingDamageAsFalse()
+        {
+            yield return new WaitForSeconds(1f);
+            _isTakingDamage = false;
         }
 
         private void Jump()
@@ -86,10 +120,9 @@ namespace Assets.Scripts.Player
 
         private void DashHandler()
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !_isDashing)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !_animator.GetBool("isDashing"))
             {
-                _isDashing = true;
-                _animator.SetBool("isDashing", _isDashing);
+                _animator.SetBool("isDashing", true);
                 _currentSpeed = playerSettings.speedDash;
 
                 AnimationHandler(playerSettings.dashScaleAnimation, playerSettings.dashAnimationDuration);
@@ -121,8 +154,7 @@ namespace Assets.Scripts.Player
         private void StopDash()
         {
             _currentSpeed = playerSettings.speed;
-            _isDashing = false;
-            _animator.SetBool("isDashing", _isDashing);
+            _animator.SetBool("isDashing", false);
         }
 
         private void DefaultMovement()
@@ -173,6 +205,12 @@ namespace Assets.Scripts.Player
             {
                 _rigidbody2D.velocity += playerSettings.friction;
             }
+        }
+
+        private IEnumerator DestroyPlayer()
+        {
+            yield return new WaitForSeconds(_timeToDeath);
+            Destroy(gameObject);
         }
     }
 }
