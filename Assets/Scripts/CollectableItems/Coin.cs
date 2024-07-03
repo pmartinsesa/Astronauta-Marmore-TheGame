@@ -12,6 +12,7 @@ namespace Assets.Scripts.CollectableItems
 
         [Header("Events")]
         public UnityEvent<ECoinType> addCoinsByType;
+        public UnityEvent onAudioPlay;
 
         private ParticleSystem _particleSystem;
 
@@ -47,6 +48,8 @@ namespace Assets.Scripts.CollectableItems
                 _particleSystem?.Play();
 
             addCoinsByType.Invoke(type);
+            onAudioPlay.Invoke();
+
             SelfDestroy();
         }
 

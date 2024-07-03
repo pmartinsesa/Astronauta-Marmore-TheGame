@@ -8,12 +8,10 @@ namespace Assets.Scripts.Life
         public int life = 3;
 
         private int _currentLife;
-        private bool _isDead;
 
         private void Awake()
         {
             _currentLife = life;
-            _isDead = false;
         }
 
         public bool onDamage(int damage)
