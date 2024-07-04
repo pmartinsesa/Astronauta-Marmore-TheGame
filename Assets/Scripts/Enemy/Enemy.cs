@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Enemy
@@ -21,9 +20,7 @@ namespace Assets.Scripts.Enemy
         private void Update()
         {
             transform.Translate(Vector3.left * (velocity * Time.deltaTime));
-
             _animator.SetBool("isRunning", true);
-
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

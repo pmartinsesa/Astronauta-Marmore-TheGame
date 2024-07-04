@@ -10,7 +10,7 @@ namespace Assets.Scripts.Player
         public GameObject gun;
         public GameObject bullet;
 
-        private bool canFire = true;
+        private bool _canFire = true;
 
         private void Update()
         {
@@ -21,9 +21,9 @@ namespace Assets.Scripts.Player
         {
             if (Input.GetMouseButton(0))
             {
-                if (canFire)
+                if (_canFire)
                 {
-                    canFire = false;
+                    _canFire = false;
                     onFire();
                 }
             }
@@ -39,7 +39,7 @@ namespace Assets.Scripts.Player
         private IEnumerator FireRateHandler()
         {
             yield return new WaitForSeconds(1 / fireRate);
-            canFire = true;
+            _canFire = true;
         }
     }
 }

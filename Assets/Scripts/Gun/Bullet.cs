@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Gun
@@ -9,7 +8,7 @@ namespace Assets.Scripts.Gun
         [Header("Bullet Settings")]
         public float speed;
         public int lifeTime;
-        
+
         private GameObject _player;
 
         private void Awake()

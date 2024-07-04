@@ -11,12 +11,13 @@ namespace Assets.Scripts.Sound
 
         public void OnPlay()
         {
-            audioSource.clip = audioClips[Random.Range(0, audioClips.Count - 1)];
+            OnPlayWithAudioSource(audioSource, audioClips[Random.Range(0, audioClips.Count - 1)]);
+        }
 
-            Debug.Log(audioSource.clip);
-
-            if (!audioSource.isPlaying)
-                audioSource.Play();
+        public void OnPlayWithAudioSource(AudioSource source, AudioClip clip)
+        {
+            source.clip = clip;
+            source.Play();
         }
     }
 }

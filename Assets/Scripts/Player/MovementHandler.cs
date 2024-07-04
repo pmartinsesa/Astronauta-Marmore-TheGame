@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Player
 {
@@ -14,8 +15,16 @@ namespace Assets.Scripts.Player
         public ParticleSystem jumpParticle;
         public ParticleSystem runningParticle;
 
+        [Header("SFX settings")]
+        public AudioSource audioSource;
+        public AudioClip jumpClips;
+        public AudioClip dashClips;
+
+        [Header("Player events settings")]
+        public UnityEvent<AudioSource, AudioClip> onSoundPlay;
+
         [Header("Life settings")]
-        public int life = 3;
+        public int life;
 
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
@@ -91,6 +100,7 @@ namespace Assets.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.Space) && _currentJumps < playerSettings.maxJumps)
             {
+                onSoundPlay.Invoke(audioSource, jumpClips);
                 _currentJumps++;
                 _rigidbody2D.velocity = Vector2.up * playerSettings.jumpForce;
                 _animator.SetBool("isJumping", true);
@@ -122,6 +132,7 @@ namespace Assets.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && !_animator.GetBool("isDashing"))
             {
+                onSoundPlay.Invoke(audioSource, dashClips);
                 _animator.SetBool("isDashing", true);
                 _currentSpeed = playerSettings.speedDash;
 
