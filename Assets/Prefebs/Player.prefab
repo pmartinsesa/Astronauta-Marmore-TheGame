@@ -9848,7 +9848,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 224936773486852800}
         m_TargetAssemblyTypeName: Assets.Scripts.Sound.SoundBase, Assembly-CSharp
-        m_MethodName: OnPlayWithAudioSource
+        m_MethodName: OnPlayMultipleSounds
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
