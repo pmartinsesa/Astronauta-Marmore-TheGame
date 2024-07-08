@@ -14732,6 +14732,7 @@ MonoBehaviour:
   jumpClips: {fileID: 8300000, guid: d73b73743ea434d9b98c5c0b04b51e3a, type: 3}
   fallingClips: {fileID: 8300000, guid: a476e34385a8f43f5a7cd7280badc54f, type: 3}
   dashClips: {fileID: 8300000, guid: b7db7ff580d9848ed8f011953f466b66, type: 3}
+  hitClips: {fileID: 8300000, guid: e44bb15d0be184e228244208f1a94e2c, type: 3}
   onSoundPlay:
     m_PersistentCalls:
       m_Calls:

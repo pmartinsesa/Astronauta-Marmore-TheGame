@@ -21,6 +21,7 @@ namespace Assets.Scripts.Player
         public AudioClip jumpClips;
         public AudioClip fallingClips;
         public AudioClip dashClips;
+        public AudioClip hitClips;
 
         [Header("Player events settings")]
         public UnityEvent<AudioSource, AudioClip> onSoundPlay;
@@ -34,7 +35,6 @@ namespace Assets.Scripts.Player
         private int _currentJumps;
         private bool _isTakingDamage;
         private float _timeToDeath = 3f;
-
 
         private void Awake()
         {
@@ -75,6 +75,7 @@ namespace Assets.Scripts.Player
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 _isTakingDamage = true;
+                onSoundPlay.Invoke(audioSource, hitClips);
                 handleWithDamage();
                 StartCoroutine(SetTakingDamageAsFalse());
             }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Enemy
 {
@@ -9,7 +10,15 @@ namespace Assets.Scripts.Enemy
         public float velocity = 2f;
         public Vector3 damageForce = new Vector3(-30f, 15f, 0f);
 
-        private int _timeToDeath = 1;
+        [Header("SFX settings")]
+        public AudioSource audioSource;
+        public AudioClip deathClips;
+        public AudioClip attackClips;
+
+        [Header("Player events settings")]
+        public UnityEvent<AudioSource, AudioClip> onSoundPlay;
+
+        private float _timeToDeath = 2f;
         private Animator _animator;
 
         private void Awake()
@@ -29,6 +38,7 @@ namespace Assets.Scripts.Enemy
             {
                 _animator.SetBool("isDead", true);
                 velocity = 0;
+                onSoundPlay.Invoke(audioSource, deathClips);
                 StartCoroutine(DestroyEnemy());
             }
         }
@@ -37,6 +47,7 @@ namespace Assets.Scripts.Enemy
         {
             if (collision.gameObject.tag == "Player")
             {
+                onSoundPlay.Invoke(audioSource, attackClips);
                 Attack(collision.gameObject);
                 Invoke(nameof(AttackStop), .5f);
             }

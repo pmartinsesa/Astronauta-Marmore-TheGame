@@ -24,7 +24,7 @@ namespace Assets.Scripts.Sound
 
             var newAudioSource = gameObject.AddComponent<AudioSource>();
             PlaySound(newAudioSource, clip);
-            Destroy(newAudioSource, 1f);
+            Destroy(newAudioSource, 1.5f);
         }
 
         private void PlaySound(AudioSource source, AudioClip clip)

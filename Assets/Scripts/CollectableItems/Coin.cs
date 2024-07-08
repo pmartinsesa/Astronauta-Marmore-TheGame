@@ -56,7 +56,9 @@ namespace Assets.Scripts.CollectableItems
         public void SelfDestroy()
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             DOTween.Kill(gameObject.transform);
+            
             Destroy(gameObject, 1f);
         }
     }
