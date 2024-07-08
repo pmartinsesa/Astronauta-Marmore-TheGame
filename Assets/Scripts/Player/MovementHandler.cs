@@ -14,10 +14,12 @@ namespace Assets.Scripts.Player
         [Header("VFX settings")]
         public ParticleSystem jumpParticle;
         public ParticleSystem runningParticle;
+        public ParticleSystem dashParticle;
 
         [Header("SFX settings")]
         public AudioSource audioSource;
         public AudioClip jumpClips;
+        public AudioClip fallingClips;
         public AudioClip dashClips;
 
         [Header("Player events settings")]
@@ -58,7 +60,6 @@ namespace Assets.Scripts.Player
 
             _currentJumps = 0;
             AnimationHandler(playerSettings.fallScaleAnimation, playerSettings.fallAnimationDuration);
-            Invoke(nameof(VFXJump), .3f);
             _animator.SetBool("onGround", true);
         }
 
@@ -76,6 +77,12 @@ namespace Assets.Scripts.Player
                 _isTakingDamage = true;
                 handleWithDamage();
                 StartCoroutine(SetTakingDamageAsFalse());
+            }
+
+            if(collision.gameObject.CompareTag("Ground"))
+            {
+                onSoundPlay.Invoke(audioSource, fallingClips);
+                VFXJump();
             }
         }
 
@@ -133,6 +140,7 @@ namespace Assets.Scripts.Player
             if (Input.GetKeyDown(KeyCode.LeftShift) && !_animator.GetBool("isDashing"))
             {
                 onSoundPlay.Invoke(audioSource, dashClips);
+                dashParticle.Play();
                 _animator.SetBool("isDashing", true);
                 _currentSpeed = playerSettings.speedDash;
 
