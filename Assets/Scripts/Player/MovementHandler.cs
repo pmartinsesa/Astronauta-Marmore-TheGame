@@ -94,7 +94,7 @@ namespace Assets.Scripts.Player
             {
                 _animator.SetBool("isJumping", false);
                 _animator.SetBool("isDead", true);
-                StartCoroutine(DestroyPlayer());
+                Destroy(gameObject, _timeToDeath);
             }
         }
 
@@ -225,12 +225,6 @@ namespace Assets.Scripts.Player
             {
                 _rigidbody2D.velocity += playerSettings.friction;
             }
-        }
-
-        private IEnumerator DestroyPlayer()
-        {
-            yield return new WaitForSeconds(_timeToDeath);
-            Destroy(gameObject);
         }
     }
 }
