@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Assets.Scripts.Sound
 {
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Sound
         [Header("Audio Settings")]
         public List<AudioClip> audioClips;
         public AudioSource defaultAudioSource;
+        public AudioMixerGroup defaultAudioMixerGroup;
 
         public void OnPlay()
         {
@@ -29,6 +31,7 @@ namespace Assets.Scripts.Sound
 
         private void PlaySound(AudioSource source, AudioClip clip)
         {
+            source.outputAudioMixerGroup = defaultAudioMixerGroup;
             source.clip = clip;
             source.Play();
         }
