@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Player
 {
@@ -13,17 +14,28 @@ namespace Assets.Scripts.Player
         [Header("VFX settings")]
         public ParticleSystem jumpParticle;
         public ParticleSystem runningParticle;
+        public ParticleSystem dashParticle;
+
+        [Header("SFX settings")]
+        public AudioSource audioSource;
+        public AudioClip jumpClips;
+        public AudioClip fallingClips;
+        public AudioClip dashClips;
+        public AudioClip hitClips;
+
+        [Header("Player events settings")]
+        public UnityEvent<AudioSource, AudioClip> onSoundPlay;
+        public UnityEvent<string> onDeath;
 
         [Header("Life settings")]
-        public int life = 3;
+        public int life;
 
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
         private float _currentSpeed;
         private int _currentJumps;
         private bool _isTakingDamage;
-        private float _timeToDeath = 3f;
-
+        private float _timeToDeath = 2.5f;
 
         private void Awake()
         {
@@ -49,7 +61,6 @@ namespace Assets.Scripts.Player
 
             _currentJumps = 0;
             AnimationHandler(playerSettings.fallScaleAnimation, playerSettings.fallAnimationDuration);
-            Invoke(nameof(VFXJump), .3f);
             _animator.SetBool("onGround", true);
         }
 
@@ -65,8 +76,15 @@ namespace Assets.Scripts.Player
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 _isTakingDamage = true;
+                onSoundPlay.Invoke(audioSource, hitClips);
                 handleWithDamage();
                 StartCoroutine(SetTakingDamageAsFalse());
+            }
+
+            if(collision.gameObject.CompareTag("Ground"))
+            {
+                onSoundPlay.Invoke(audioSource, fallingClips);
+                VFXJump();
             }
         }
 
@@ -77,8 +95,13 @@ namespace Assets.Scripts.Player
             {
                 _animator.SetBool("isJumping", false);
                 _animator.SetBool("isDead", true);
-                StartCoroutine(DestroyPlayer());
+                StartCoroutine(DeathPlayer());
             }
+        }
+        private IEnumerator DeathPlayer()
+        {
+            yield return new WaitForSeconds(_timeToDeath);
+            onDeath.Invoke("SCN_Death");
         }
 
         private IEnumerator SetTakingDamageAsFalse()
@@ -91,6 +114,7 @@ namespace Assets.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.Space) && _currentJumps < playerSettings.maxJumps)
             {
+                onSoundPlay.Invoke(audioSource, jumpClips);
                 _currentJumps++;
                 _rigidbody2D.velocity = Vector2.up * playerSettings.jumpForce;
                 _animator.SetBool("isJumping", true);
@@ -122,6 +146,8 @@ namespace Assets.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && !_animator.GetBool("isDashing"))
             {
+                onSoundPlay.Invoke(audioSource, dashClips);
+                dashParticle.Play();
                 _animator.SetBool("isDashing", true);
                 _currentSpeed = playerSettings.speedDash;
 
@@ -205,12 +231,6 @@ namespace Assets.Scripts.Player
             {
                 _rigidbody2D.velocity += playerSettings.friction;
             }
-        }
-
-        private IEnumerator DestroyPlayer()
-        {
-            yield return new WaitForSeconds(_timeToDeath);
-            Destroy(gameObject);
         }
     }
 }

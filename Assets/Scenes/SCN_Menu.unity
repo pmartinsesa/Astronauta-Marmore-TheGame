@@ -1567,7 +1567,7 @@ MonoBehaviour:
   - {fileID: 518532847}
   - {fileID: 264956982}
   duration: 1
-  delay: 10
+  ease: 27
 --- !u!1 &780945900
 GameObject:
   m_ObjectHideFlags: 0

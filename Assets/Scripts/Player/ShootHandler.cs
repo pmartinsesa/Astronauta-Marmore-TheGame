@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Player
 {
@@ -10,7 +11,14 @@ namespace Assets.Scripts.Player
         public GameObject gun;
         public GameObject bullet;
 
-        private bool canFire = true;
+        [Header("SFX settings")]
+        public AudioSource audioSource;
+        public AudioClip shootClips;
+
+        [Header("Player events settings")]
+        public UnityEvent<AudioSource, AudioClip> onSoundPlay;
+
+        private bool _canFire = true;
 
         private void Update()
         {
@@ -21,9 +29,9 @@ namespace Assets.Scripts.Player
         {
             if (Input.GetMouseButton(0))
             {
-                if (canFire)
+                if (_canFire)
                 {
-                    canFire = false;
+                    _canFire = false;
                     onFire();
                 }
             }
@@ -33,13 +41,14 @@ namespace Assets.Scripts.Player
         {
             bullet.transform.position = gun.transform.position;
             Instantiate(bullet);
+            onSoundPlay.Invoke(audioSource, shootClips);
             StartCoroutine(FireRateHandler());
         }
 
         private IEnumerator FireRateHandler()
         {
             yield return new WaitForSeconds(1 / fireRate);
-            canFire = true;
+            _canFire = true;
         }
     }
 }

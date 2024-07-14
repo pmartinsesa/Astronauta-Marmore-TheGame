@@ -7,7 +7,7 @@ namespace Assets.Scripts.Canvas.Counters
     {
         [Header("Counter Component")]
         public TMP_Text counterOnScreen;
- 
+
         public void UpdateCounterOnScreen(int counter)
         {
             counterOnScreen.SetText(counter.ToString());

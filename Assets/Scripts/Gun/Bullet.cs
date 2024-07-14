@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Gun
@@ -9,7 +8,7 @@ namespace Assets.Scripts.Gun
         [Header("Bullet Settings")]
         public float speed;
         public int lifeTime;
-        
+
         private GameObject _player;
 
         private void Awake()
@@ -19,7 +18,7 @@ namespace Assets.Scripts.Gun
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Finish"))
             {
                 Destroy(gameObject);
             };
