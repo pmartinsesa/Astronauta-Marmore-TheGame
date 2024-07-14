@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SCN_Level01.unity
     guid: c6cb6b9e454c28642aff31e2149c3774
+  - enabled: 1
+    path: Assets/Scenes/SCN_EndGame.unity
+    guid: 0b5662e94901d884ea44aee90ede2a53
+  - enabled: 1
+    path: Assets/Scenes/SCN_Death.unity
+    guid: 0799b942672baa84797de607951f2956
   m_configObjects: {}

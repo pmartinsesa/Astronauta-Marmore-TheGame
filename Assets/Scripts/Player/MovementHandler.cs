@@ -25,6 +25,7 @@ namespace Assets.Scripts.Player
 
         [Header("Player events settings")]
         public UnityEvent<AudioSource, AudioClip> onSoundPlay;
+        public UnityEvent<string> onDeath;
 
         [Header("Life settings")]
         public int life;
@@ -34,7 +35,7 @@ namespace Assets.Scripts.Player
         private float _currentSpeed;
         private int _currentJumps;
         private bool _isTakingDamage;
-        private float _timeToDeath = 3f;
+        private float _timeToDeath = 2.5f;
 
         private void Awake()
         {
@@ -94,8 +95,13 @@ namespace Assets.Scripts.Player
             {
                 _animator.SetBool("isJumping", false);
                 _animator.SetBool("isDead", true);
-                Destroy(gameObject, _timeToDeath);
+                StartCoroutine(DeathPlayer());
             }
+        }
+        private IEnumerator DeathPlayer()
+        {
+            yield return new WaitForSeconds(_timeToDeath);
+            onDeath.Invoke("SCN_Death");
         }
 
         private IEnumerator SetTakingDamageAsFalse()
